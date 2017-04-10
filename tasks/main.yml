@@ -1,3 +1,10 @@
 ---
-- name: Echo teardown
-  shell: echo 'teardown'
+- name: Teardown the hypervisor (An OpenStack VM)
+  os_server:
+    state: absent
+    name: hypervisor
+    auth:
+      auth_url: '{{ os_auth_url }}'
+      username: '{{ os_username }}'
+      password: '{{ os_password }}'
+      project_name: '{{ os_project_name }}'
